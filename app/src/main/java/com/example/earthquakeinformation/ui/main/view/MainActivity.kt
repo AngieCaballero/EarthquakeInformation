@@ -1,7 +1,8 @@
-package com.example.earthquakeinformation
+package com.example.earthquakeinformation.ui.main.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.earthquakeinformation.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
