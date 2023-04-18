@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Earthquake Information</string>
+
+    <!-- Signup and Signing screens -->
+    <string name="title_signup_screen">Registrarse</string>
+    <string name="title_signin_screen">Iniciar Sesión</string>
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="confirm_password">Confirmar Contraseña</string>
+    <string name="create_user_button">Crear Usuario</string>
+    <string name="empty_data">Los datos no pueden estar vacíos</string>
+    <string name="incorrect_data">Contraseña o usuario incorrecto</string>
+    <string name="passwords_dont_match">Contraseñas no coinciden</string>
+
+    <!-- Home screens -->
+    <string name="title_home_screen">Home</string>
+    <string name="select_date">Seleccionar fecha</string>
+    <string name="make_query">Realizar consulta</string>
+    <string name="show_last_query">Mostrar última consulta</string>
+
 </resources>
