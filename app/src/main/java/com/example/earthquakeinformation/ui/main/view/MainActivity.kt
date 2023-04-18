@@ -1,12 +1,15 @@
 package com.example.earthquakeinformation.ui.main.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.earthquakeinformation.R
+import android.view.LayoutInflater
+import com.example.earthquakeinformation.databinding.ActivityMainBinding
+import com.example.earthquakeinformation.ui.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
     }
+
+    override fun onCreateBinding(inflater: LayoutInflater): ActivityMainBinding =
+        ActivityMainBinding.inflate(inflater)
 }

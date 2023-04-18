@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.EarthquakeInformation" parent="Base.Theme.EarthquakeInformation" />
+
+    <style name="Title" parent="TextAppearance.AppCompat.Title" />
+    <style name="Body" parent="TextAppearance.AppCompat.Body1" />
+
 </resources>

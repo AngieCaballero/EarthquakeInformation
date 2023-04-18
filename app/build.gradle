@@ -33,11 +33,11 @@ android {
     sourceSets {
         main {
             res.srcDirs (
-                    'src/main/signin/res',
-                    'src/main/signup/res',
-                    'src/main/home/res',
-                    'src/main/earthquakeDetails/res',
-                    'src/main/earthquakeList/res'
+                    'src/main/res/layouts/signin',
+                    'src/main/res/layouts/signup',
+                    'src/main/res/layouts/home',
+                    'src/main/res/layouts/earthquakeDetails',
+                    'src/main/res/layouts/earthquakeList'
             )
         }
     }
