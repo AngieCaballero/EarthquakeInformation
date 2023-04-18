@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.fragment.findNavController
 import com.example.earthquakeinformation.databinding.FragmentSigninBinding
 import com.example.earthquakeinformation.ui.base.BaseFragment
+import com.example.earthquakeinformation.ui.main.tools.setGone
+import com.example.earthquakeinformation.ui.main.tools.setVisible
 import com.example.earthquakeinformation.ui.signin.viewmodel.SigninViewModel
 import com.example.earthquakeinformation.ui.signup.view.SignupDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,13 +38,28 @@ class SigninFragment: BaseFragment<FragmentSigninBinding>() {
 
     private fun setListeners(){
         binding.signinButton.setOnClickListener {
-
+            val name = binding.signinUserEditText.text.toString()
+            val password = binding.signinPasswordEditText.text.toString()
+            viewModel.authenticateUser(name, password)
         }
     }
 
     private fun setObserve(){
-        viewModel.isEmptyUserTable.observe(viewLifecycleOwner){ isEmptyUserTable ->
+        viewModel.isEmptyUserTable.observe(viewLifecycleOwner) { isEmptyUserTable ->
             if (isEmptyUserTable) openSignupDialogFragment()
+        }
+
+        viewModel.isUserRegistered.observe(viewLifecycleOwner) { isUserRegistered ->
+            if (isUserRegistered == true){
+                binding.signinErrorText.setGone()
+                findNavController().navigate(
+                    SigninFragmentDirections.actionSigninFragmentToHomeFragment()
+                )
+            } 
+
+            if (isUserRegistered == false){
+                binding.signinErrorText.setVisible()
+            }
         }
     }
 

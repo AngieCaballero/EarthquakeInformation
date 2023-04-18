@@ -24,4 +24,8 @@ object RoomModule {
     @Singleton
     @Provides
     fun provideUserDao(db: EarthquakeDatabase) = db.getUserDao()
+
+    @Singleton
+    @Provides
+    fun provideEarthquakeDao(db: EarthquakeDatabase) = db.getEarthquakeDao()
 }

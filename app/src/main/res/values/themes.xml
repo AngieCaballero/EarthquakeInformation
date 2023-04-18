@@ -7,7 +7,13 @@
 
     <style name="Theme.EarthquakeInformation" parent="Base.Theme.EarthquakeInformation" />
 
+    <!-- Text -->
     <style name="Title" parent="TextAppearance.AppCompat.Title" />
     <style name="Body" parent="TextAppearance.AppCompat.Body1" />
+    <style name="TextError" parent="Body">
+        <item name="android:textColor">@color/design_default_color_error</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:text">@string/incorrect_data</item>
+    </style>
 
 </resources>
