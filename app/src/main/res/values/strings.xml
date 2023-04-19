@@ -1,5 +1,7 @@
 <resources>
+    <!-- global -->
     <string name="app_name">Earthquake Information</string>
+    <string name="accept">Aceptar</string>
 
     <!-- Signup and Signing screens -->
     <string name="title_signup_screen">Registrarse</string>
@@ -17,5 +19,13 @@
     <string name="select_date">Seleccionar fecha</string>
     <string name="make_query">Realizar consulta</string>
     <string name="show_last_query">Mostrar última consulta</string>
+    <string name="no_date_selected_alert_dialog_message">
+        Selecciona una fecha para poder realizar la consulta
+    </string>
+
+    <!-- EarthquakeList screen -->
+    <string name="title_EarthquakeList_screen">Sismos</string>
+    <string name="earthquake_magnitude">Magnitud: %s</string>
+    <string name="earthquake_location">Localización: %s</string>
 
 </resources>

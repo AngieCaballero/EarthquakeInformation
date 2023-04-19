@@ -17,13 +17,13 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://earthquake.usgs.gov/fdsnws/event/1/query/")
+            .baseUrl("https://earthquake.usgs.gov/fdsnws/event/1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
     @Singleton
     @Provides
-    fun provideEarthquakeaApiClient(retrofit: Retrofit): EarthquakeApiClient =
+    fun provideEarthquakeApiClient(retrofit: Retrofit): EarthquakeApiClient =
         retrofit.create(EarthquakeApiClient::class.java)
 }

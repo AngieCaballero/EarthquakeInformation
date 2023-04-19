@@ -13,9 +13,9 @@
 
         <ImageView
             android:id="@+id/item_earthquake_imageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="20dp"
+            android:layout_width="80dp"
+            android:layout_height="0dp"
+            android:layout_margin="15dp"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,13 +23,35 @@
 
         <TextView
             android:id="@+id/item_earthquake_title"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="M 2.4 - 3 km SSW of Guánica, Puerto Rico"
+            style="@style/Title"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/item_earthquake_imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/item_earthquake_mag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Titulo"
-            style="@style/Title"
+            android:layout_margin="15dp"
+            android:text="@string/earthquake_magnitude"
+            style="@style/Body"
             app:layout_constraintStart_toEndOf="@id/item_earthquake_imageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/item_earthquake_title" />
+
+        <TextView
+            android:id="@+id/item_earthquake_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/earthquake_location"
+            style="@style/Body"
+            app:layout_constraintStart_toEndOf="@id/item_earthquake_mag"
+            app:layout_constraintTop_toBottomOf="@id/item_earthquake_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -17,7 +17,7 @@ data class Earthquake(
 )
 
 fun EarthquakeApiResponse.toEarthquakeList(): List<Earthquake>? {
-    return feature?.map { earthquake ->
+    return features?.map { earthquake ->
         Earthquake(
             earthquake.id,
             earthquake.properties?.title,

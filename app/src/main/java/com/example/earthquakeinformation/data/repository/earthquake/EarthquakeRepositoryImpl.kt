@@ -1,5 +1,6 @@
 package com.example.earthquakeinformation.data.repository.earthquake
 
+import android.util.Log
 import com.example.earthquakeinformation.data.database.dao.EarthquakeDao
 import com.example.earthquakeinformation.data.domain.Earthquake
 import com.example.earthquakeinformation.data.domain.toEarthquakeList

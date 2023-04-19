@@ -1,5 +1,6 @@
 package com.example.earthquakeinformation.data.network
 
+import android.util.Log
 import com.example.earthquakeinformation.data.model.EarthquakeApiResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface EarthquakeApiClient {
 
-    @GET("?format=geojson")
+    @GET("query?format=geojson")
     suspend fun getEarthquakesFromDate(
         @Query("starttime") startTime: String,
         @Query("endtime") endTime: String
