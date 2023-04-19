@@ -83,6 +83,11 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        datePicker = null
+    }
+
     companion object{
         private const val DATE_PICKER_TAG = "date_picker"
     }

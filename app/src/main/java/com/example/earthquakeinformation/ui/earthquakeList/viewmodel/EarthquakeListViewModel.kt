@@ -1,5 +1,6 @@
 package com.example.earthquakeinformation.ui.earthquakeList.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,10 +23,10 @@ class EarthquakeListViewModel @Inject constructor(
     val earthquakeList: LiveData<List<Earthquake>?>
         get() = _earthquakeList
 
-    fun getDataFromAnySource(startTime: String?) {
+    fun getDataFromAnySource(startTime: String? = null) {
         when(startTime){
             null -> {
-
+                getEarthquakeFromQueryHistory()
             }
             else -> {
                 getEarthquakeListFromDate(startTime)
@@ -35,9 +36,22 @@ class EarthquakeListViewModel @Inject constructor(
 
     private fun getEarthquakeListFromDate(startTime: String) {
         val currentDate = Date().setFormat("YYYY-MM-dd")
-        viewModelScope.launch(Dispatchers.IO){
+        viewModelScope.launch {
             val earthquakeListResponse = repository.getEarthquakeListFromDate(startTime, currentDate)
             _earthquakeList.postValue(earthquakeListResponse)
+        }
+    }
+
+    private fun getEarthquakeFromQueryHistory(){
+        viewModelScope.launch(Dispatchers.IO){
+            val earthquakeHistoryList = repository.getEarthquakeFromQueryHistory()
+            _earthquakeList.postValue(earthquakeHistoryList)
+        }
+    }
+
+    fun saveEarthquakeListInDatabase(earthquakesConsultedList: List<Earthquake>) {
+        viewModelScope.launch(Dispatchers.IO){
+            repository.insertEarthquakeInDatabase(earthquakesConsultedList)
         }
     }
 }

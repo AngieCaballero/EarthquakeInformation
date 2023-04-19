@@ -8,12 +8,24 @@
     <style name="Theme.EarthquakeInformation" parent="Base.Theme.EarthquakeInformation" />
 
     <!-- Text -->
-    <style name="Title" parent="TextAppearance.AppCompat.Title" />
+    <style name="Title" parent="TextAppearance.AppCompat.Title" >
+        <item name="android:textAlignment">center</item>
+    </style>
     <style name="Body" parent="TextAppearance.AppCompat.Body1" />
     <style name="TextError" parent="Body">
         <item name="android:textColor">@color/design_default_color_error</item>
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:text">@string/incorrect_data</item>
+    </style>
+    <style name="message_error_full_screen" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">22dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <!-- CardView -->
+    <style name="CardView.EarthquakeInformation" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">15dp</item>
+        <item name="strokeWidth">0dp</item>
     </style>
 
 </resources>

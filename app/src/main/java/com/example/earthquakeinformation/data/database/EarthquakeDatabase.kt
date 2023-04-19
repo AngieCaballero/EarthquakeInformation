@@ -10,7 +10,7 @@ import com.example.earthquakeinformation.data.database.entities.UserEntity
 @Database(entities = [
     UserEntity::class,
     EarthquakeEntity::class
- ], version = 1)
+ ], version = 1, exportSchema = false)
 abstract class EarthquakeDatabase: RoomDatabase() {
 
     abstract fun getUserDao(): UserDao

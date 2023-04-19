@@ -27,5 +27,13 @@
     <string name="title_EarthquakeList_screen">Sismos</string>
     <string name="earthquake_magnitude">Magnitud: %s</string>
     <string name="earthquake_location">Localización: %s</string>
+    <string name="no_data_message">Actualmente no existe información</string>
+    <string name="return_home">Volver a Home</string>
+
+    <!-- EarthquakeDetails screen -->
+    <string name="earthquake_time">Tiempo: %s</string>
+    <string name="earthquake_status">Estado: %s</string>
+    <string name="earthquake_latitude">Latitud: %s</string>
+    <string name="earthquake_longitude">Longitud: %s</string>
 
 </resources>

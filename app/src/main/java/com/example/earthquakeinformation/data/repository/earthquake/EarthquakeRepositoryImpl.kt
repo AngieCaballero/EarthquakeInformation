@@ -1,8 +1,9 @@
 package com.example.earthquakeinformation.data.repository.earthquake
 
-import android.util.Log
 import com.example.earthquakeinformation.data.database.dao.EarthquakeDao
+import com.example.earthquakeinformation.data.database.entities.toEntity
 import com.example.earthquakeinformation.data.domain.Earthquake
+import com.example.earthquakeinformation.data.domain.toEarthquake
 import com.example.earthquakeinformation.data.domain.toEarthquakeList
 import com.example.earthquakeinformation.data.network.EarthquakeService
 import javax.inject.Inject
@@ -20,14 +21,19 @@ class EarthquakeRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getEarthquakeFromQueryHistory(): List<Earthquake>? {
-        TODO("Not yet implemented")
+        return earthquakeDao.getEarthquakeQueryHistory()?.map { earthquakeEntity ->
+            earthquakeEntity.toEarthquake()
+        }
     }
 
-    override suspend fun insertEarthquakeInDatabase(earthquake: Earthquake) {
-        TODO("Not yet implemented")
+    override suspend fun insertEarthquakeInDatabase(earthquakeList: List<Earthquake>) {
+        earthquakeDao.clearEarthquakeTable()
+        earthquakeDao.insertEarthquakeQueryHistory(earthquakeList.map { earthquake ->
+            earthquake.toEntity()
+        })
     }
 
     override suspend fun getEarthquakeDetails(id: String): Earthquake? {
-        TODO("Not yet implemented")
+        return earthquakeDao.getEarthquakeDetails(id)?.toEarthquake()
     }
 }

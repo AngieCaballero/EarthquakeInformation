@@ -10,7 +10,7 @@ import com.example.earthquakeinformation.data.domain.Earthquake
 import com.example.earthquakeinformation.databinding.ItemEarthquakeBinding
 
 class EarthQuakeListAdapter(
-    listener: EarthquakeListeners
+    val listener: EarthquakeListeners
 ): RecyclerView.Adapter<EarthQuakeListAdapter.EarthQuakeViewHolder>() {
 
     interface EarthquakeListeners{
@@ -45,12 +45,21 @@ class EarthQuakeListAdapter(
 
     inner class EarthQuakeViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
-        val binding = ItemEarthquakeBinding.bind(view)
+        private val binding = ItemEarthquakeBinding.bind(view)
 
         fun bind(earthquake: Earthquake){
 
             binding.itemEarthquakeTitle.text = earthquake.title
+            binding.itemEarthquakeMag.text = itemView.context.getString(
+                R.string.earthquake_magnitude, earthquake.mag.toString()
+            )
+            binding.itemEarthquakeLocation.text = itemView.context.getString(
+                R.string.earthquake_location, earthquake.place
+            )
 
+            binding.root.setOnClickListener {
+                listener.onSelectEarthquake(earthquake)
+            }
         }
     }
 }

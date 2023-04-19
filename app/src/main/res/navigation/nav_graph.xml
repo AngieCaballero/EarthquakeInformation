@@ -50,5 +50,18 @@
             app:nullable="true"
             android:defaultValue="null"/>
 
+        <action
+            android:id="@+id/action_earthQuakeListFragment_to_earthquakeDetailsFragment"
+            app:destination="@id/earthquakeDetailsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/earthquakeDetailsFragment"
+        android:name="com.example.earthquakeinformation.ui.earthquakeDetails.view.EarthquakeDetailsFragment"
+        android:label="EarthquakeDetailsFragment" >
+
+        <argument android:name="id"
+            app:argType="string"/>
+
     </fragment>
 </navigation>

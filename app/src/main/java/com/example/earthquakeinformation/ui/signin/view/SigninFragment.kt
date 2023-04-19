@@ -70,4 +70,9 @@ class SigninFragment: BaseFragment<FragmentSigninBinding>() {
         val signupDialogFragment = SignupDialogFragment()
         signupDialogFragment.show(parentFragmentManager, signupDialogFragment.tag)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+    }
 }
