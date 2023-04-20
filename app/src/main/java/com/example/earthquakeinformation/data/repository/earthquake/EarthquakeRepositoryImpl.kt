@@ -18,6 +18,7 @@ class EarthquakeRepositoryImpl @Inject constructor(
         endTime: String
     ): List<Earthquake>? {
         return earthquakeService.getEarthquakesFromDate(startTime, endTime)?.toEarthquakeList()
+
     }
 
     override suspend fun getEarthquakeFromQueryHistory(): List<Earthquake>? {

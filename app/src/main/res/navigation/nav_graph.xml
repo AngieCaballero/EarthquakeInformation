@@ -12,20 +12,10 @@
         tools:layout="@layout/fragment_signin">
 
         <action
-            android:id="@+id/action_signinFragment_to_signupDialogFragment"
-            app:destination="@id/signupDialogFragment" />
-
-        <action
             android:id="@+id/action_signinFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
 
     </fragment>
-
-    <dialog
-        android:id="@+id/signupDialogFragment"
-        android:name="com.example.earthquakeinformation.ui.signup.view.SignupDialogFragment"
-        android:label="SignupDialogFragment"
-        tools:layout="@layout/dialog_fragment_signup"/>
 
     <fragment
         android:id="@+id/homeFragment"

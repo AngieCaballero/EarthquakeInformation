@@ -2,6 +2,9 @@
     <!-- global -->
     <string name="app_name">Earthquake Information</string>
     <string name="accept">Aceptar</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="confirm_quit_the_app_message">¿Esta seguro de salir de la app?</string>
 
     <!-- Signup and Signing screens -->
     <string name="title_signup_screen">Registrarse</string>

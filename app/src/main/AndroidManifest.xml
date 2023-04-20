@@ -15,9 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EarthquakeInformation"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${api_key_map}"/>
+
         <activity
             android:name=".ui.main.view.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.EarthquakeInformation.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

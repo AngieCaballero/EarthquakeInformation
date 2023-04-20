@@ -28,4 +28,12 @@
         <item name="strokeWidth">0dp</item>
     </style>
 
+    <!-- Splash -->
+    <style name="Theme.EarthquakeInformation.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/earthquake</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@style/Theme.EarthquakeInformation</item>
+    </style>
+
 </resources>
