@@ -1,5 +1,6 @@
 package com.example.earthquakeinformation.data.network
 
+import android.util.Log
 import com.example.earthquakeinformation.data.model.EarthquakeApiResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -15,9 +16,13 @@ class EarthquakeServiceImpl @Inject constructor(
         endTime: String
     ): EarthquakeApiResponse? {
         return withContext(Dispatchers.IO) {
-            val response : Response<EarthquakeApiResponse> =
-                api.getEarthquakesFromDate(startTime, endTime)
-            if(response.isSuccessful) response.body() else null
+            try {
+                val response : Response<EarthquakeApiResponse> =
+                    api.getEarthquakesFromDate(startTime, endTime)
+                if(response.isSuccessful) response.body() else null
+            }catch (e: Exception){
+                null
+            }
         }
     }
 }

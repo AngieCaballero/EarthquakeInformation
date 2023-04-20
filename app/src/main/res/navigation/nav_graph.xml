@@ -4,36 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/signinFragment">
+
     <fragment
         android:id="@+id/signinFragment"
         android:name="com.example.earthquakeinformation.ui.signin.view.SigninFragment"
         android:label="SigninFragment"
         tools:layout="@layout/fragment_signin">
-        <action
-            android:id="@+id/action_signinFragment_to_signupDialogFragment"
-            app:destination="@id/signupDialogFragment" />
+
         <action
             android:id="@+id/action_signinFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+
     </fragment>
-    <dialog
-        android:id="@+id/signupDialogFragment"
-        android:name="com.example.earthquakeinformation.ui.signup.view.SignupDialogFragment"
-        android:label="SignupDialogFragment"
-        tools:layout="@layout/dialog_fragment_signup"/>
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.earthquakeinformation.ui.home.view.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
+
         <action
             android:id="@+id/action_homeFragment_to_earthQuakeListFragment"
             app:destination="@id/earthQuakeListFragment" />
+
     </fragment>
+
     <fragment
         android:id="@+id/earthQuakeListFragment"
         android:name="com.example.earthquakeinformation.ui.earthquakeList.view.EarthQuakeListFragment"
         android:label="EarthQuakeListFragment"
-        tools:layout="@layout/fragment_eartquakelist">
+        tools:layout="@layout/fragment_earthquakelist">
+
+        <argument android:name="startTime"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null"/>
+
+        <action
+            android:id="@+id/action_earthQuakeListFragment_to_earthquakeDetailsFragment"
+            app:destination="@id/earthquakeDetailsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/earthquakeDetailsFragment"
+        android:name="com.example.earthquakeinformation.ui.earthquakeDetails.view.EarthquakeDetailsFragment"
+        android:label="EarthquakeDetailsFragment" >
+
+        <argument android:name="id"
+            app:argType="string"/>
+
     </fragment>
 </navigation>

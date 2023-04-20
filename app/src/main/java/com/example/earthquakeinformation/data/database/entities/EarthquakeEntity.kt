@@ -18,8 +18,8 @@ data class EarthquakeEntity(
     @ColumnInfo(name = "status") val status: String?,
     @ColumnInfo(name = "tsunami") val tsunami: Int?,
     @ColumnInfo(name = "latitude") val latitude: Double?,
-    @ColumnInfo(name = "Longitude") val Longitude: Double?
+    @ColumnInfo(name = "longitude") val longitude: Double?
 )
 
 fun Earthquake.toEntity() =
-    EarthquakeEntity(id, title, mag, place, time, url, detail, status, tsunami, coordinates?.get(0), coordinates?.get(1))
+    EarthquakeEntity(id, title, mag, place, time, url, detail, status, tsunami, coordinates?.latitude, coordinates?.longitude)

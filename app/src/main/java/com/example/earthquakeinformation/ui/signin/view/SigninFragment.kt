@@ -50,15 +50,18 @@ class SigninFragment: BaseFragment<FragmentSigninBinding>() {
         }
 
         viewModel.isUserRegistered.observe(viewLifecycleOwner) { isUserRegistered ->
-            if (isUserRegistered == true){
-                binding.signinErrorText.setGone()
-                findNavController().navigate(
-                    SigninFragmentDirections.actionSigninFragmentToHomeFragment()
-                )
-            } 
+            when(isUserRegistered) {
+                true -> {
+                    binding.signinErrorText.setGone()
+                    findNavController().navigate(
+                        SigninFragmentDirections.actionSigninFragmentToHomeFragment()
+                    )
+                }
+                false -> {
+                    binding.signinErrorText.setVisible()
+                }
 
-            if (isUserRegistered == false){
-                binding.signinErrorText.setVisible()
+                else -> { /* */ }
             }
         }
     }
@@ -66,5 +69,10 @@ class SigninFragment: BaseFragment<FragmentSigninBinding>() {
     private fun openSignupDialogFragment() {
         val signupDialogFragment = SignupDialogFragment()
         signupDialogFragment.show(parentFragmentManager, signupDialogFragment.tag)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
     }
 }

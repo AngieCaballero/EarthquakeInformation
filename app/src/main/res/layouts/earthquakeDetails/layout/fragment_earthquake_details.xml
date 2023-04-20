@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/earthquake"
+        />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        style="@style/CardView.EarthquakeInformation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/details_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Title"
+                android:layout_marginBottom="10dp"
+                android:text="M 2.4 - 3 km SSW of Guánica, Puerto Rico"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/details_mag_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/earthquake_magnitude" />
+
+                    <TextView
+                        android:id="@+id/details_location_text"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/earthquake_location" />
+
+                </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/details_time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/earthquake_time" />
+
+                    <TextView
+                        android:id="@+id/details_status_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/earthquake_status" />
+
+                </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/details_latitude_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/earthquake_latitude" />
+
+                    <TextView
+                        android:id="@+id/details_longitude_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/earthquake_longitude" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/details_google_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

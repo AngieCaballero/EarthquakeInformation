@@ -13,11 +13,11 @@ data class Earthquake(
     val detail: String? = null,
     val status: String? = null,
     val tsunami: Int? = null,
-    val coordinates: List<Double?>? = null
+    val coordinates: Coordinates? = null
 )
 
 fun EarthquakeApiResponse.toEarthquakeList(): List<Earthquake>? {
-    return feature?.map { earthquake ->
+    return features?.map { earthquake ->
         Earthquake(
             earthquake.id,
             earthquake.properties?.title,
@@ -28,12 +28,15 @@ fun EarthquakeApiResponse.toEarthquakeList(): List<Earthquake>? {
             earthquake.properties?.detail,
             earthquake.properties?.status,
             earthquake.properties?.tsunami,
-            earthquake.geometry?.coordinates
+            Coordinates(
+                earthquake.geometry?.coordinates?.get(1),
+                earthquake.geometry?.coordinates?.get(0)
+            )
         )
     }
 }
 
 fun EarthquakeEntity.toEarthquake() =
     Earthquake(id, title, mag, place, time, url, detail, status, tsunami,
-        listOf(latitude, latitude)
+        Coordinates(latitude , longitude)
     )

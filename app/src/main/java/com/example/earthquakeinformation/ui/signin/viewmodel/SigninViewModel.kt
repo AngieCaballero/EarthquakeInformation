@@ -25,19 +25,15 @@ class SigninViewModel @Inject constructor(
         get() = _isUserRegistered
 
     fun countUser(){
-        viewModelScope.launch {
-            withContext(Dispatchers.Default) {
-                if (repository.countUsers() == 0)
-                    _isEmptyUserTable.postValue(true)
-            }
+        viewModelScope.launch(Dispatchers.Default) {
+            if (repository.countUsers() == 0)
+                _isEmptyUserTable.postValue(true)
         }
     }
 
     fun authenticateUser(name: String, password: String){
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                _isUserRegistered.postValue(repository.authenticateUser(name, password))
-            }
+        viewModelScope.launch(Dispatchers.IO) {
+            _isUserRegistered.postValue(repository.authenticateUser(name, password))
         }
     }
 }

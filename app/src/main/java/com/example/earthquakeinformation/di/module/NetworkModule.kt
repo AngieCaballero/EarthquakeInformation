@@ -5,8 +5,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -15,15 +17,26 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit {
+    fun provideOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://earthquake.usgs.gov/fdsnws/event/1/query/")
+            .baseUrl("https://earthquake.usgs.gov/fdsnws/event/1/")
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
     @Singleton
     @Provides
-    fun provideEarthquakeaApiClient(retrofit: Retrofit): EarthquakeApiClient =
+    fun provideEarthquakeApiClient(retrofit: Retrofit): EarthquakeApiClient =
         retrofit.create(EarthquakeApiClient::class.java)
 }

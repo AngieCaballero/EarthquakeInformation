@@ -10,6 +10,4 @@ class HomeViewModel @Inject constructor(
     private val repository: EarthquakeRepository
 ): ViewModel() {
 
-
-
 }
