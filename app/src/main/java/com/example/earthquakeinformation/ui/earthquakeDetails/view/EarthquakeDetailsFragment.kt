@@ -83,7 +83,7 @@ class EarthquakeDetailsFragment:
 
     private fun createMapMarker(title: String, coordinates: Coordinates?){
         if (coordinates == null) return
-        val marker = LatLng(coordinates?.latitude ?: 12.1656, -80.1749)
+        val marker = LatLng(coordinates.latitude ?: 12.1656, coordinates.longitude ?:-80.1749)
         mMap?.addMarker(
             MarkerOptions()
                 .position(marker)
