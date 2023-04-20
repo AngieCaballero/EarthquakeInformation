@@ -110,7 +110,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
                 .setPositiveButton(
                     resources.getString(R.string.yes)
                 ) { dialog, _ -> dialog.dismiss()
-                    (requireActivity() as MainActivity).onBackPressedDispatcher
+                    (requireActivity() as MainActivity).finish()
                 }
                 .setNegativeButton(
                     resources.getString(R.string.no)

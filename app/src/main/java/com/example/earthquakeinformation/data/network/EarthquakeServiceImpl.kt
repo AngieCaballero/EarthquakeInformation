@@ -16,9 +16,13 @@ class EarthquakeServiceImpl @Inject constructor(
         endTime: String
     ): EarthquakeApiResponse? {
         return withContext(Dispatchers.IO) {
-            val response : Response<EarthquakeApiResponse> =
-                api.getEarthquakesFromDate(startTime, endTime)
-            if(response.isSuccessful) response.body() else null
+            try {
+                val response : Response<EarthquakeApiResponse> =
+                    api.getEarthquakesFromDate(startTime, endTime)
+                if(response.isSuccessful) response.body() else null
+            }catch (e: Exception){
+                null
+            }
         }
     }
 }
