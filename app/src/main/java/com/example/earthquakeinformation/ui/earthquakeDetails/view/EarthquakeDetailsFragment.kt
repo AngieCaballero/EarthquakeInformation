@@ -101,9 +101,10 @@ class EarthquakeDetailsFragment:
         binding.detailsGoogleMapView.onPause()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        mMap = null
         binding.detailsGoogleMapView.onDestroy()
+        super.onDestroyView()
     }
 
     override fun onLowMemory() {
